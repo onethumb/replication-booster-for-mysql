@@ -46,9 +46,7 @@ static char* convert_to_select(const std::string query, uint *length)
   if (boost::regex_search(query, result, update_exp))
   {
     DBUG_PRINT("Match UPDATE.");
-    select = "select isnull(coalesce(";
-    select.append(result.str(2));
-    select.append(")) from ");
+    select = "select * from ";
     select.append(result.str(1));
     if (result.position(3) != -1)
     {
